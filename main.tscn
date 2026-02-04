@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://b821myv7hqira"]
+[gd_scene load_steps=7 format=3 uid="uid://b821myv7hqira"]
 
 [ext_resource type="Texture2D" uid="uid://dhwnqujy3boje" path="res://arenaSprite.svg" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://djnj8o7akgy0v" path="res://playerSprite.svg" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://neep3irwtjix" path="res://ball.svg" id="3_h2yge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
+size = Vector2(10, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(10, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(10, 10)
 
 [node name="Main" type="Node2D"]
 
@@ -12,20 +21,34 @@
 position = Vector2(250, 250)
 texture = ExtResource("1_ig7tw")
 
-[node name="Player1" type="Node2D" parent="."]
+[node name="Player1" type="CharacterBody2D" parent="."]
 
 [node name="Player1Sprite" type="Sprite2D" parent="Player1"]
 position = Vector2(5, 250)
 texture = ExtResource("2_0xm2m")
 
-[node name="Player2" type="Node2D" parent="."]
+[node name="Player1Collision" type="CollisionShape2D" parent="Player1"]
+position = Vector2(5, 250)
+shape = SubResource("RectangleShape2D_h2yge")
+debug_color = Color(0.83828264, 0.3195688, 0.49457145, 0.91764706)
+
+[node name="Player2" type="CharacterBody2D" parent="."]
 
 [node name="Player2Sprite" type="Sprite2D" parent="Player2"]
 position = Vector2(495, 250)
 texture = ExtResource("2_0xm2m")
 
-[node name="Ball" type="Node2D" parent="."]
+[node name="Player2Collision" type="CollisionShape2D" parent="Player2"]
+position = Vector2(495, 250)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="Ball" type="RigidBody2D" parent="."]
 
 [node name="BallSprite" type="Sprite2D" parent="Ball"]
 position = Vector2(15, 250)
 texture = ExtResource("3_h2yge")
+
+[node name="BallCollision" type="CollisionShape2D" parent="Ball"]
+position = Vector2(15, 250)
+shape = SubResource("RectangleShape2D_lquwl")
+debug_color = Color(0.62718284, 0.5300722, 0.10050721, 0.41960785)
