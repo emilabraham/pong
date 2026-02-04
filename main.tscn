@@ -1,15 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://b821myv7hqira"]
+[gd_scene load_steps=4 format=3 uid="uid://b821myv7hqira"]
 
-[ext_resource type="Texture2D" uid="uid://dhwnqujy3boje" path="res://black.svg" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://dhwnqujy3boje" path="res://arenaSprite.svg" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://djnj8o7akgy0v" path="res://playerSprite.svg" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://neep3irwtjix" path="res://ball.svg" id="3_h2yge"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Arena" type="Node2D" parent="."]
 
-[node name="Black" type="Sprite2D" parent="Arena"]
+[node name="ArenaSprite" type="Sprite2D" parent="Arena"]
 position = Vector2(250, 250)
 texture = ExtResource("1_ig7tw")
 
 [node name="Player1" type="Node2D" parent="."]
 
+[node name="Player1Sprite" type="Sprite2D" parent="Player1"]
+position = Vector2(5, 250)
+texture = ExtResource("2_0xm2m")
+
 [node name="Player2" type="Node2D" parent="."]
+
+[node name="Player2Sprite" type="Sprite2D" parent="Player2"]
+position = Vector2(495, 250)
+texture = ExtResource("2_0xm2m")
+
+[node name="Ball" type="Node2D" parent="."]
+
+[node name="BallSprite" type="Sprite2D" parent="Ball"]
+position = Vector2(15, 250)
+texture = ExtResource("3_h2yge")
