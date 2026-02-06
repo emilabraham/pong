@@ -11,7 +11,6 @@ func set_paddle_boundary():
 	var paddle_half_height = 25.0
 	var child_offset_y = 250.0
 	position.y = clamp(position.y, -child_offset_y + paddle_half_height, screen_size.y - child_offset_y - paddle_half_height)
-	print("Current Position: ", position.x, ",", position.y)
 
 func _ready() -> void:
 	screen_size = get_viewport_rect().size

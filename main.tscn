@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b821myv7hqira"]
+[gd_scene load_steps=11 format=3 uid="uid://b821myv7hqira"]
 
 [ext_resource type="Script" uid="uid://dtit4chiy0my1" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="Texture2D" uid="uid://dhwnqujy3boje" path="res://arenaSprite.svg" id="1_ig7tw"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bqr0e2c3oiwo1" path="res://player_1_script.gd" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://neep3irwtjix" path="res://ball.svg" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://bpar44f1rn7e6" path="res://player_2_script.gd" id="4_lquwl"]
+[ext_resource type="Script" uid="uid://c3rn2uo3opsoq" path="res://ball.gd" id="6_272bh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
 size = Vector2(10, 50)
@@ -49,7 +50,9 @@ position = Vector2(495, 250)
 shape = SubResource("RectangleShape2D_1bvp3")
 
 [node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2(235, 0)
 gravity_scale = 0.0
+script = ExtResource("6_272bh")
 
 [node name="BallSprite" type="Sprite2D" parent="Ball"]
 position = Vector2(15, 250)
