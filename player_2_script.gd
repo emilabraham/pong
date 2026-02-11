@@ -1,12 +1,16 @@
-extends CharacterBody2D
+extends StaticBody2D
 
 @export var speed = 400
 var screen_size
 
-func get_input():
-	var input_direction = Input.get_axis("up player 2", "down player 2")
-	velocity.y = input_direction * speed
+# Adjust position based on input
+func move_based_on_input(delta: float):
+	if Input.is_action_pressed("up player 2"):
+		position.y -= speed * delta
+	if Input.is_action_pressed("down player 2"):
+		position.y += speed * delta
 
+# Clamp the position of the paddle so we don't move beyond the boundary
 func set_paddle_boundary():
 	var paddle_half_height = 25.0
 	var child_offset_y = 250.0
@@ -15,7 +19,6 @@ func set_paddle_boundary():
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
 
-func _physics_process(_delta: float) -> void:
-	get_input()
-	move_and_slide()
+func _physics_process(delta: float) -> void:
+	move_based_on_input(delta)
 	set_paddle_boundary()
