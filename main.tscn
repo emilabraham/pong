@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b821myv7hqira"]
+[gd_scene load_steps=12 format=3 uid="uid://b821myv7hqira"]
 
 [ext_resource type="Script" uid="uid://dtit4chiy0my1" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="Texture2D" uid="uid://dhwnqujy3boje" path="res://arenaSprite.svg" id="1_ig7tw"]
@@ -16,6 +16,8 @@ size = Vector2(10, 50)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_272bh"]
 radius = 5.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_7mycd")
@@ -62,3 +64,20 @@ texture = ExtResource("3_h2yge")
 position = Vector2(15, 250)
 shape = SubResource("CircleShape2D_272bh")
 debug_color = Color(0.62718284, 0.5300722, 0.10050721, 0.41960785)
+
+[node name="TopBoundary" type="StaticBody2D" parent="."]
+position = Vector2(250, -10)
+scale = Vector2(5, 1)
+
+[node name="TopBoundaryCollision" type="CollisionShape2D" parent="TopBoundary"]
+scale = Vector2(5, 1)
+shape = SubResource("RectangleShape2D_272bh")
+
+[node name="BottomBoundary" type="StaticBody2D" parent="."]
+position = Vector2(250, -10)
+scale = Vector2(5, 1)
+
+[node name="BottomBoundaryCollision" type="CollisionShape2D" parent="BottomBoundary"]
+position = Vector2(0, 520)
+scale = Vector2(5, 1)
+shape = SubResource("RectangleShape2D_272bh")

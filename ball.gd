@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var speed = 200
+@export var speed = 150
 
 func _ready() -> void:
 	spawn_ball()
