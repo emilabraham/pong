@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b821myv7hqira"]
+[gd_scene load_steps=13 format=3 uid="uid://b821myv7hqira"]
 
 [ext_resource type="Script" uid="uid://dtit4chiy0my1" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="Texture2D" uid="uid://dhwnqujy3boje" path="res://arenaSprite.svg" id="1_ig7tw"]
@@ -18,6 +18,8 @@ size = Vector2(10, 50)
 radius = 5.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vw27"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_7mycd")
@@ -81,3 +83,20 @@ scale = Vector2(5, 1)
 position = Vector2(0, 520)
 scale = Vector2(5, 1)
 shape = SubResource("RectangleShape2D_272bh")
+
+[node name="LeftBoundary" type="Area2D" parent="."]
+position = Vector2(-10, 250.00002)
+scale = Vector2(1, 25.000008)
+
+[node name="LeftBoundaryCollision" type="CollisionShape2D" parent="LeftBoundary"]
+shape = SubResource("RectangleShape2D_5vw27")
+
+[node name="RightBoundary" type="Area2D" parent="."]
+position = Vector2(510, 250.00003)
+scale = Vector2(1, 25.000008)
+
+[node name="RightBoundaryCollision" type="CollisionShape2D" parent="RightBoundary"]
+shape = SubResource("RectangleShape2D_5vw27")
+
+[connection signal="body_entered" from="LeftBoundary" to="." method="_on_left_boundary_body_entered"]
+[connection signal="body_entered" from="RightBoundary" to="." method="_on_right_boundary_body_entered"]
