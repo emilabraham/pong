@@ -6,6 +6,7 @@ func _ready() -> void:
 	spawn_ball()
 
 func spawn_ball():
+	position = Vector2(235,0)
 	var angle = randf_range(-PI/4, PI/4)
 	if randi() % 2 == 0:
 		angle += PI
