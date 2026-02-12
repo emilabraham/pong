@@ -27,4 +27,3 @@ func _on_right_boundary_body_entered(body: Node2D) -> void:
 		player_1_score += 1
 		$Player1Score.text = str(player_1_score)
 		reset_ball()
-		print("right body entered. Incrementing player 1 score: ", player_1_score)

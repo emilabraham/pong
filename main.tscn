@@ -56,6 +56,7 @@ shape = SubResource("RectangleShape2D_1bvp3")
 [node name="Ball" type="RigidBody2D" parent="."]
 position = Vector2(235, 0)
 gravity_scale = 0.0
+linear_damp_mode = 1
 script = ExtResource("6_272bh")
 
 [node name="BallSprite" type="Sprite2D" parent="Ball"]
