@@ -20,5 +20,7 @@ func _ready() -> void:
 	screen_size = get_viewport_rect().size
 
 func _physics_process(delta: float) -> void:
+	if not get_parent().game_active:
+		return
 	move_based_on_input(delta)
 	set_paddle_boundary()

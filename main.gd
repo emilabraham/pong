@@ -2,6 +2,7 @@ extends Node2D
 
 var player_1_score
 var player_2_score
+var game_active := true
 
 func _ready() -> void:
 	new_game()
@@ -11,9 +12,12 @@ func new_game():
 	player_2_score = 0
 
 func reset_ball():
+	game_active = false
 	$Ball.linear_velocity = Vector2.ZERO
-	# TODO: This still allows the paddle to move. We probably want to reset the paddles too.
 	await get_tree().create_timer(3.0).timeout
+	$Player1.position.y = 0
+	$Player2.position.y = 0
+	game_active = true
 	$Ball.spawn_ball()
 
 func _on_left_boundary_body_entered(body: Node2D) -> void:
