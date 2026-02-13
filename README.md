@@ -10,3 +10,4 @@ A buggy recreation of the first video game.
 2. Is it moving forward?: Get 20 wall bounces before hitting a paddle.
 3. Skunk: End the game with a skunk score: 7-0.
 4. First Victory: Be the first to get to 11 points.
+5. Longest Rally: Bounce off the paddle 20 times before scoring a point.
