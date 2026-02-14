@@ -5,11 +5,18 @@ var player_2_score
 var game_active := true
 
 func _ready() -> void:
+	set_pausing()
 	new_game()
 
 func new_game():
 	player_1_score = 0
 	player_2_score = 0
+
+func set_pausing() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	$PauseScreen.hide()
+	for child in get_children():
+		child.process_mode = Node.PROCESS_MODE_PAUSABLE
 
 func reset_ball():
 	game_active = false
@@ -19,6 +26,11 @@ func reset_ball():
 	$Player2.position.y = 0
 	game_active = true
 	$Ball.spawn_ball()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		get_tree().paused = !get_tree().paused
+		$PauseScreen.visible = !$PauseScreen.visible
 
 func _on_left_boundary_body_entered(body: Node2D) -> void:
 	if body == $Ball:
