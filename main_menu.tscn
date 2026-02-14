@@ -22,14 +22,49 @@ layout_mode = 2
 [node name="GameTitle" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Pong"
+horizontal_alignment = 1
 
 [node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Play"
 
+[node name="HowToPlayButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "How To Play"
+
 [node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
+[node name="HowToPlayCanvas" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HowToPlayCanvas"]
+offset_left = 80.0
+offset_top = 90.0
+offset_right = 423.0
+offset_bottom = 404.0
+text = "The first to 11 points wins the game!
+
+Press Esc to pause the game.
+
+Player 1 (left paddle) controls:
+W to move the paddle up.
+S to smove the paddle down.
+
+Player 2 (right paddle) controls:
+Up arrow key to move the paddle up.
+Down arrow key to move the paddle down."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="HowToPlayCanvas"]
+offset_left = 421.0
+offset_top = 60.0
+offset_right = 439.0
+offset_bottom = 91.0
+text = "X"
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="HowToPlayCanvas/CloseButton" to="." method="_on_close_button_pressed"]
