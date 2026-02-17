@@ -126,20 +126,19 @@ text = "P A U S E D"
 
 [node name="GameOverScreen" type="CanvasLayer" parent="." unique_id=1094344001]
 
-[node name="CenterContainer" type="CenterContainer" parent="GameOverScreen" unique_id=1557013896]
-offset_right = 500.0
-offset_bottom = 500.0
-
-[node name="GameOverLabel" type="Label" parent="GameOverScreen/CenterContainer" unique_id=992550253]
-layout_mode = 2
-text = "G A M E     O V E R"
-
 [node name="WinnerLabel" type="Label" parent="GameOverScreen" unique_id=1998269527]
 offset_left = 170.0
 offset_top = 260.0
 offset_right = 341.0
 offset_bottom = 283.0
 text = "Player 2 is the winner!"
+
+[node name="GameOverLabel" type="Label" parent="GameOverScreen" unique_id=992550253]
+offset_left = 183.0
+offset_top = 238.0
+offset_right = 313.0
+offset_bottom = 261.0
+text = "G A M E    O V E R"
 
 [connection signal="body_entered" from="LeftBoundary" to="." method="_on_left_boundary_body_entered"]
 [connection signal="body_entered" from="RightBoundary" to="." method="_on_right_boundary_body_entered"]
