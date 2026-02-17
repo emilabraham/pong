@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b821myv7hqira"]
+[gd_scene format=3 uid="uid://b821myv7hqira"]
 
 [ext_resource type="Script" uid="uid://dtit4chiy0my1" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="Texture2D" uid="uid://dhwnqujy3boje" path="res://arenaSprite.svg" id="1_ig7tw"]
@@ -21,107 +21,125 @@ radius = 5.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vw27"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=425886109]
 script = ExtResource("1_7mycd")
 
-[node name="Arena" type="Node2D" parent="."]
+[node name="Arena" type="Node2D" parent="." unique_id=1879999612]
 
-[node name="ArenaSprite" type="Sprite2D" parent="Arena"]
+[node name="ArenaSprite" type="Sprite2D" parent="Arena" unique_id=1164361119]
 position = Vector2(250, 250)
 texture = ExtResource("1_ig7tw")
 
-[node name="Player1" type="StaticBody2D" parent="."]
+[node name="Player1" type="StaticBody2D" parent="." unique_id=1076922628]
 script = ExtResource("2_1bvp3")
 
-[node name="Player1Sprite" type="Sprite2D" parent="Player1"]
+[node name="Player1Sprite" type="Sprite2D" parent="Player1" unique_id=77737622]
 position = Vector2(5, 250)
 texture = ExtResource("2_0xm2m")
 
-[node name="Player1Collision" type="CollisionShape2D" parent="Player1"]
+[node name="Player1Collision" type="CollisionShape2D" parent="Player1" unique_id=1683086604]
 position = Vector2(5, 250)
 shape = SubResource("RectangleShape2D_h2yge")
 debug_color = Color(0.83828264, 0.3195688, 0.49457145, 0.91764706)
 
-[node name="Player2" type="StaticBody2D" parent="."]
+[node name="Player2" type="StaticBody2D" parent="." unique_id=2080398410]
 script = ExtResource("4_lquwl")
 
-[node name="Player2Sprite" type="Sprite2D" parent="Player2"]
+[node name="Player2Sprite" type="Sprite2D" parent="Player2" unique_id=1601125737]
 position = Vector2(495, 250)
 texture = ExtResource("2_0xm2m")
 
-[node name="Player2Collision" type="CollisionShape2D" parent="Player2"]
+[node name="Player2Collision" type="CollisionShape2D" parent="Player2" unique_id=1640055310]
 position = Vector2(495, 250)
 shape = SubResource("RectangleShape2D_1bvp3")
 
-[node name="Ball" type="RigidBody2D" parent="."]
+[node name="Ball" type="RigidBody2D" parent="." unique_id=313048598]
 position = Vector2(235, 0)
 gravity_scale = 0.0
 linear_damp_mode = 1
 script = ExtResource("6_272bh")
 
-[node name="BallSprite" type="Sprite2D" parent="Ball"]
+[node name="BallSprite" type="Sprite2D" parent="Ball" unique_id=1536652316]
 position = Vector2(15, 250)
 texture = ExtResource("3_h2yge")
 
-[node name="BallCollision" type="CollisionShape2D" parent="Ball"]
+[node name="BallCollision" type="CollisionShape2D" parent="Ball" unique_id=1849282606]
 position = Vector2(15, 250)
 shape = SubResource("CircleShape2D_272bh")
 debug_color = Color(0.62718284, 0.5300722, 0.10050721, 0.41960785)
 
-[node name="TopBoundary" type="StaticBody2D" parent="."]
+[node name="TopBoundary" type="StaticBody2D" parent="." unique_id=1780830307]
 position = Vector2(250, -10)
 scale = Vector2(5, 1)
 
-[node name="TopBoundaryCollision" type="CollisionShape2D" parent="TopBoundary"]
+[node name="TopBoundaryCollision" type="CollisionShape2D" parent="TopBoundary" unique_id=519029918]
 scale = Vector2(5, 1)
 shape = SubResource("RectangleShape2D_272bh")
 
-[node name="BottomBoundary" type="StaticBody2D" parent="."]
+[node name="BottomBoundary" type="StaticBody2D" parent="." unique_id=363119553]
 position = Vector2(250, -10)
 scale = Vector2(5, 1)
 
-[node name="BottomBoundaryCollision" type="CollisionShape2D" parent="BottomBoundary"]
+[node name="BottomBoundaryCollision" type="CollisionShape2D" parent="BottomBoundary" unique_id=168943841]
 position = Vector2(0, 520)
 scale = Vector2(5, 1)
 shape = SubResource("RectangleShape2D_272bh")
 
-[node name="LeftBoundary" type="Area2D" parent="."]
+[node name="LeftBoundary" type="Area2D" parent="." unique_id=646632302]
 position = Vector2(-10, 250.00002)
 scale = Vector2(1, 25.000008)
 
-[node name="LeftBoundaryCollision" type="CollisionShape2D" parent="LeftBoundary"]
+[node name="LeftBoundaryCollision" type="CollisionShape2D" parent="LeftBoundary" unique_id=385707104]
 shape = SubResource("RectangleShape2D_5vw27")
 
-[node name="RightBoundary" type="Area2D" parent="."]
+[node name="RightBoundary" type="Area2D" parent="." unique_id=1484447059]
 position = Vector2(510, 250.00003)
 scale = Vector2(1, 25.000008)
 
-[node name="RightBoundaryCollision" type="CollisionShape2D" parent="RightBoundary"]
+[node name="RightBoundaryCollision" type="CollisionShape2D" parent="RightBoundary" unique_id=1044620154]
 shape = SubResource("RectangleShape2D_5vw27")
 
-[node name="Player1Score" type="Label" parent="."]
+[node name="Player1Score" type="Label" parent="." unique_id=648989910]
 offset_left = 200.0
 offset_top = 9.0
 offset_right = 240.0
 offset_bottom = 32.0
 text = "0"
 
-[node name="Player2Score" type="Label" parent="."]
+[node name="Player2Score" type="Label" parent="." unique_id=426124306]
 offset_left = 287.0
 offset_top = 9.0
 offset_right = 327.0
 offset_bottom = 32.0
 text = "0"
 
-[node name="PauseScreen" type="CanvasLayer" parent="."]
+[node name="PauseScreen" type="CanvasLayer" parent="." unique_id=1348769705]
+visible = false
 
-[node name="CenterContainer" type="CenterContainer" parent="PauseScreen"]
+[node name="CenterContainer" type="CenterContainer" parent="PauseScreen" unique_id=911697992]
 offset_right = 500.0
 offset_bottom = 500.0
 
-[node name="PauseLabel" type="Label" parent="PauseScreen/CenterContainer"]
+[node name="PauseLabel" type="Label" parent="PauseScreen/CenterContainer" unique_id=247704753]
 layout_mode = 2
 text = "P A U S E D"
+
+[node name="GameOverScreen" type="CanvasLayer" parent="." unique_id=1094344001]
+
+[node name="CenterContainer" type="CenterContainer" parent="GameOverScreen" unique_id=1557013896]
+offset_right = 500.0
+offset_bottom = 500.0
+
+[node name="GameOverLabel" type="Label" parent="GameOverScreen/CenterContainer" unique_id=992550253]
+layout_mode = 2
+text = "G A M E     O V E R"
+
+[node name="WinnerLabel" type="Label" parent="GameOverScreen" unique_id=1998269527]
+offset_left = 170.0
+offset_top = 260.0
+offset_right = 341.0
+offset_bottom = 283.0
+text = "Player 2 is the winner!"
 
 [connection signal="body_entered" from="LeftBoundary" to="." method="_on_left_boundary_body_entered"]
 [connection signal="body_entered" from="RightBoundary" to="." method="_on_right_boundary_body_entered"]

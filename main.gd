@@ -15,6 +15,7 @@ func new_game():
 func set_pausing() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	$PauseScreen.hide()
+	$GameOverScreen.hide()
 	for child in get_children():
 		child.process_mode = Node.PROCESS_MODE_PAUSABLE
 
@@ -36,10 +37,25 @@ func _on_left_boundary_body_entered(body: Node2D) -> void:
 	if body == $Ball:
 		player_2_score += 1
 		$Player2Score.text = str(player_2_score)
-		reset_ball()
+		game_over_screen()
+		if (player_1_score < 11 && player_2_score < 11):
+			reset_ball()
 
 func _on_right_boundary_body_entered(body: Node2D) -> void:
 	if body == $Ball:
 		player_1_score += 1
 		$Player1Score.text = str(player_1_score)
-		reset_ball()
+		game_over_screen()
+		if (player_1_score < 11 && player_2_score < 11):
+			reset_ball()
+
+func game_over_screen() -> void:
+	if player_1_score >= 11:
+		$GameOverScreen/WinnerLabel.text = "Player 1 is the winner!"
+		$GameOverScreen.show()
+		game_active = false
+		
+	if player_2_score >= 11:
+		$GameOverScreen/WinnerLabel.text = "Player 2 is the winner!"
+		$GameOverScreen.show()
+		game_active = false
