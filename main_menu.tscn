@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://s7wgnbiqw150"]
+[gd_scene format=3 uid="uid://s7wgnbiqw150"]
 
 [ext_resource type="Script" uid="uid://4m81pbcfjof2" path="res://main_menu.gd" id="1_06t4h"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=1555612887]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,34 +11,41 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_06t4h")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=337021023]
 layout_mode = 0
 offset_right = 500.0
 offset_bottom = 500.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1985829552]
 layout_mode = 2
 
-[node name="GameTitle" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="GameTitle" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1116973436]
 layout_mode = 2
 text = "Pong"
 horizontal_alignment = 1
 
-[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1568140596]
 layout_mode = 2
 text = "Play"
 
-[node name="HowToPlayButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="HowToPlayButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1144004954]
 layout_mode = 2
 text = "How To Play"
 
-[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=826872285]
 layout_mode = 2
 text = "Quit"
 
-[node name="HowToPlayCanvas" type="CanvasLayer" parent="."]
+[node name="HowToPlayCanvas" type="CanvasLayer" parent="." unique_id=2093176671]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HowToPlayCanvas"]
+[node name="Background" type="ColorRect" parent="HowToPlayCanvas" unique_id=898300259]
+offset_left = 60.0
+offset_top = 50.0
+offset_right = 449.0
+offset_bottom = 414.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HowToPlayCanvas" unique_id=11654456]
 offset_left = 80.0
 offset_top = 90.0
 offset_right = 423.0
@@ -57,7 +64,7 @@ Down arrow key to move the paddle down."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CloseButton" type="Button" parent="HowToPlayCanvas"]
+[node name="CloseButton" type="Button" parent="HowToPlayCanvas" unique_id=66424226]
 offset_left = 421.0
 offset_top = 60.0
 offset_right = 439.0
