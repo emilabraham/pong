@@ -9,8 +9,8 @@ func _ready() -> void:
 	new_game()
 
 func new_game():
-	player_1_score = 0
-	player_2_score = 0
+	player_1_score = 10
+	player_2_score = 10
 
 func set_pausing() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -59,3 +59,7 @@ func game_over_screen() -> void:
 		$GameOverScreen/WinnerLabel.text = "Player 2 is the winner!"
 		$GameOverScreen.show()
 		game_active = false
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()
