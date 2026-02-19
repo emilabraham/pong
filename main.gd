@@ -29,7 +29,7 @@ func reset_ball():
 	$Ball.spawn_ball()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause"):
+	if event.is_action_pressed("pause") && game_active:
 		get_tree().paused = !get_tree().paused
 		$PauseScreen.visible = !$PauseScreen.visible
 
