@@ -9,8 +9,8 @@ func _ready() -> void:
 	new_game()
 
 func new_game():
-	player_1_score = 10
-	player_2_score = 10
+	player_1_score = 0
+	player_2_score = 0
 
 func set_pausing() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -53,17 +53,29 @@ func game_over_screen() -> void:
 	if player_1_score >= 11:
 		$GameOverScreen/WinnerLabel.text = "Player 1 is the winner!"
 		$GameOverScreen.show()
+		$Ball.linear_velocity = Vector2.ZERO
 		game_active = false
 		
 	if player_2_score >= 11:
 		$GameOverScreen/WinnerLabel.text = "Player 2 is the winner!"
 		$GameOverScreen.show()
+		$Ball.linear_velocity = Vector2.ZERO
 		game_active = false
 
+func reset_game() -> void:
+	player_1_score = 0
+	player_2_score = 0
+	$Player1Score.text = str(player_1_score)
+	$Player2Score.text = str(player_2_score)
+	$GameOverScreen.hide()
+	reset_ball()
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
-
 func _on_main_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://main_menu.tscn")
+
+
+func _on_play_again_button_pressed() -> void:
+	reset_game()
