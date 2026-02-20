@@ -18,3 +18,5 @@ func _physics_process(delta: float) -> void:
 		linear_velocity = linear_velocity.bounce(collision.get_normal())
 		if collision.get_collider().is_in_group("paddle"):
 			$PaddleHitSound.play()
+		elif collision.get_collider().is_in_group("wall"):
+			$WallHitSound.play()
