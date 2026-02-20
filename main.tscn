@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://c3rn2uo3opsoq" path="res://ball.gd" id="6_272bh"]
 [ext_resource type="AudioStream" uid="uid://c06450weirrh3" path="res://paddleHit.wav" id="8_5vw27"]
 [ext_resource type="AudioStream" uid="uid://cttegkn7a3h1r" path="res://wallHit.wav" id="9_kek77"]
+[ext_resource type="AudioStream" uid="uid://dxqrhdhypkrfn" path="res://score.wav" id="10_4c57u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
 size = Vector2(10, 50)
@@ -76,6 +77,9 @@ stream = ExtResource("8_5vw27")
 [node name="WallHitSound" type="AudioStreamPlayer" parent="Ball" unique_id=497646331]
 stream = ExtResource("9_kek77")
 
+[node name="ScoreBoundarySound" type="AudioStreamPlayer" parent="." unique_id=2034871650]
+stream = ExtResource("10_4c57u")
+
 [node name="TopBoundary" type="StaticBody2D" parent="." unique_id=1780830307 groups=["wall"]]
 position = Vector2(250, -10)
 scale = Vector2(5, 1)
@@ -93,14 +97,14 @@ position = Vector2(0, 520)
 scale = Vector2(5, 1)
 shape = SubResource("RectangleShape2D_272bh")
 
-[node name="LeftBoundary" type="Area2D" parent="." unique_id=646632302]
+[node name="LeftBoundary" type="Area2D" parent="." unique_id=646632302 groups=["scoreBoundary"]]
 position = Vector2(-10, 250.00002)
 scale = Vector2(1, 25.000008)
 
 [node name="LeftBoundaryCollision" type="CollisionShape2D" parent="LeftBoundary" unique_id=385707104]
 shape = SubResource("RectangleShape2D_5vw27")
 
-[node name="RightBoundary" type="Area2D" parent="." unique_id=1484447059]
+[node name="RightBoundary" type="Area2D" parent="." unique_id=1484447059 groups=["scoreBoundary"]]
 position = Vector2(510, 250.00003)
 scale = Vector2(1, 25.000008)
 

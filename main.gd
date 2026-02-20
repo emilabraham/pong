@@ -35,6 +35,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_left_boundary_body_entered(body: Node2D) -> void:
 	if body == $Ball:
+		$ScoreBoundarySound.play()
 		player_2_score += 1
 		$Player2Score.text = str(player_2_score)
 		game_over_screen()
@@ -43,6 +44,7 @@ func _on_left_boundary_body_entered(body: Node2D) -> void:
 
 func _on_right_boundary_body_entered(body: Node2D) -> void:
 	if body == $Ball:
+		$ScoreBoundarySound.play()
 		player_1_score += 1
 		$Player1Score.text = str(player_1_score)
 		game_over_screen()
