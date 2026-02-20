@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://neep3irwtjix" path="res://ball.svg" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://bpar44f1rn7e6" path="res://player_2_script.gd" id="4_lquwl"]
 [ext_resource type="Script" uid="uid://c3rn2uo3opsoq" path="res://ball.gd" id="6_272bh"]
+[ext_resource type="AudioStream" uid="uid://c06450weirrh3" path="res://paddleHit.wav" id="8_5vw27"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
 size = Vector2(10, 50)
@@ -30,7 +31,7 @@ script = ExtResource("1_7mycd")
 position = Vector2(250, 250)
 texture = ExtResource("1_ig7tw")
 
-[node name="Player1" type="StaticBody2D" parent="." unique_id=1076922628]
+[node name="Player1" type="StaticBody2D" parent="." unique_id=1076922628 groups=["paddle"]]
 script = ExtResource("2_1bvp3")
 
 [node name="Player1Sprite" type="Sprite2D" parent="Player1" unique_id=77737622]
@@ -42,7 +43,7 @@ position = Vector2(5, 250)
 shape = SubResource("RectangleShape2D_h2yge")
 debug_color = Color(0.83828264, 0.3195688, 0.49457145, 0.91764706)
 
-[node name="Player2" type="StaticBody2D" parent="." unique_id=2080398410]
+[node name="Player2" type="StaticBody2D" parent="." unique_id=2080398410 groups=["paddle"]]
 script = ExtResource("4_lquwl")
 
 [node name="Player2Sprite" type="Sprite2D" parent="Player2" unique_id=1601125737]
@@ -67,6 +68,10 @@ texture = ExtResource("3_h2yge")
 position = Vector2(15, 250)
 shape = SubResource("CircleShape2D_272bh")
 debug_color = Color(0.62718284, 0.5300722, 0.10050721, 0.41960785)
+
+[node name="PaddleHitSound" type="AudioStreamPlayer2D" parent="Ball" unique_id=1124720507]
+position = Vector2(-235, 0)
+stream = ExtResource("8_5vw27")
 
 [node name="TopBoundary" type="StaticBody2D" parent="." unique_id=1780830307]
 position = Vector2(250, -10)

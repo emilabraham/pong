@@ -16,3 +16,5 @@ func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(linear_velocity * delta)
 	if collision:
 		linear_velocity = linear_velocity.bounce(collision.get_normal())
+		if collision.get_collider().is_in_group("paddle"):
+			$PaddleHitSound.play()
