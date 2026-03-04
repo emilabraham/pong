@@ -41,7 +41,7 @@ func _on_left_boundary_body_entered(body: Node2D) -> void:
 		game_over_screen()
 		unlock_rally_count_achievement()
 		unlock_own_goal_achievement($Player1)
-		if (player_1_score < 11 && player_2_score < 11):
+		if (game_active):
 			reset_ball()
 
 func _on_right_boundary_body_entered(body: Node2D) -> void:
@@ -52,23 +52,31 @@ func _on_right_boundary_body_entered(body: Node2D) -> void:
 		game_over_screen()
 		unlock_rally_count_achievement()
 		unlock_own_goal_achievement($Player2)
-		if (player_1_score < 11 && player_2_score < 11):
+		if (game_active):
 			reset_ball()
 
 func game_over_screen() -> void:
+	if player_1_score >= 7 && player_2_score == 0:
+		end_game("Player 1 has skunked Player 2!")
+		SteamManager.unlock_achievement("ACH_SKUNK")
+
+	if player_2_score >= 7 && player_1_score == 0:
+		end_game("Player 2 has skunked Player 1!")
+		SteamManager.unlock_achievement("ACH_SKUNK")
+
 	if player_1_score >= 11:
-		$GameOverScreen/WinnerLabel.text = "Player 1 is the winner!"
-		$GameOverScreen.show()
-		$Ball.linear_velocity = Vector2.ZERO
-		game_active = false
+		end_game("Player 1 is the winner!")
 		SteamManager.unlock_achievement("ACH_FIRST_VICTORY")
 		
 	if player_2_score >= 11:
-		$GameOverScreen/WinnerLabel.text = "Player 2 is the winner!"
-		$GameOverScreen.show()
-		$Ball.linear_velocity = Vector2.ZERO
-		game_active = false
+		end_game("Player 2 is the winner!")
 		SteamManager.unlock_achievement("ACH_FIRST_VICTORY")
+
+func end_game(message: String) -> void:
+	$GameOverScreen/WinnerLabel.text = message
+	$GameOverScreen.show()
+	$Ball.linear_velocity = Vector2.ZERO
+	game_active = false
 
 func reset_game() -> void:
 	player_1_score = 0
