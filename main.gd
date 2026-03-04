@@ -39,6 +39,8 @@ func _on_left_boundary_body_entered(body: Node2D) -> void:
 		player_2_score += 1
 		$Player2Score.text = str(player_2_score)
 		game_over_screen()
+		unlock_rally_count_achievement()
+		unlock_own_goal_achievement($Player1)
 		if (player_1_score < 11 && player_2_score < 11):
 			reset_ball()
 
@@ -48,6 +50,8 @@ func _on_right_boundary_body_entered(body: Node2D) -> void:
 		player_1_score += 1
 		$Player1Score.text = str(player_1_score)
 		game_over_screen()
+		unlock_rally_count_achievement()
+		unlock_own_goal_achievement($Player2)
 		if (player_1_score < 11 && player_2_score < 11):
 			reset_ball()
 
@@ -71,6 +75,14 @@ func reset_game() -> void:
 	$Player2Score.text = str(player_2_score)
 	$GameOverScreen.hide()
 	reset_ball()
+
+func unlock_rally_count_achievement():
+	if $Ball.rally_count >= 20:
+		SteamManager.unlock_achievement("ACH_LONGEST_RALLY")
+
+func unlock_own_goal_achievement(player_node: Node):
+	if $Ball.last_paddle_hit == player_node:
+		SteamManager.unlock_achievement("ACH_OWN_GOAL")
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
