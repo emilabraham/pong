@@ -61,12 +61,14 @@ func game_over_screen() -> void:
 		$GameOverScreen.show()
 		$Ball.linear_velocity = Vector2.ZERO
 		game_active = false
+		SteamManager.unlock_achievement("ACH_FIRST_VICTORY")
 		
 	if player_2_score >= 11:
 		$GameOverScreen/WinnerLabel.text = "Player 2 is the winner!"
 		$GameOverScreen.show()
 		$Ball.linear_velocity = Vector2.ZERO
 		game_active = false
+		SteamManager.unlock_achievement("ACH_FIRST_VICTORY")
 
 func reset_game() -> void:
 	player_1_score = 0
