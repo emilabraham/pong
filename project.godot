@@ -19,6 +19,10 @@ run/main_scene="uid://s7wgnbiqw150"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SteamManager="*uid://ccl0hrxfwceku"
+
 [display]
 
 window/size/viewport_width=500
@@ -56,3 +60,10 @@ pause={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+
+[steam]
+
+initialization/app_id=0
+initialization/initialize_on_startup=false
+initialization/embed_callbacks=false
+multiplayer_peer/max_channels=4
